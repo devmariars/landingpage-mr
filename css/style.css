@@ -1,86 +1,39 @@
 
-/* =========================================================
+/* =====================================================
    MARIA RITA — PORTFÓLIO ARTÍSTICO
    A VINHA VERMELHA · VINCENT VAN GOGH
-
-   Arte + Código + Inteligência Artificial
-
-   Arquivo: css/style.css
-   Pintura: ../assets/a-vinha-vermelha.png
-
-   DIREÇÃO ARTÍSTICA
-   A pintura nasce na primeira tela, acompanha a
-   transição e se dissolve nas próprias cores.
-
-   Nenhum elemento HTML precisa ser alterado.
-   ========================================================= */
-
-
-/* =========================================================
-   01. FONTES E IDENTIDADE CROMÁTICA
-   ========================================================= */
+   ===================================================== */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Italianno&display=swap");
 
+/* IDENTIDADE */
+
 :root {
-
-  /* Cores extraídas da direção da pintura */
-
   --ink: #091719;
-  --night: #07151c;
-  --petroleum: #10262d;
-
+  --night: #10262d;
   --forest: #243c32;
-  --olive: #343b28;
-  --moss: #46503a;
-
+  --olive: #41452d;
   --earth: #372720;
-  --earth-deep: #261e1a;
   --terracotta: #b85d37;
-  --rust: #9b452b;
   --wine: #652b29;
-
   --ochre: #e5ba67;
   --gold: #d6ad62;
-  --sun: #f0ca73;
-
   --cream: #f5ebd4;
   --ivory: #fff7e7;
   --muted: #d6c9b5;
-
-  /* Detalhes */
-
-  --line: rgb(229 186 103 / 34%);
-  --line-soft: rgb(245 235 212 / 14%);
-
-  /* Fontes */
+  --line: rgb(229 186 103 / 32%);
 
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "DM Sans", Arial, sans-serif;
-  --font-handwritten: "Italianno", "Brush Script MT", cursive;
-
-  /* Dimensões */
+  --font-handwritten: "Italianno", cursive;
 
   --container: 1440px;
-  --header-height: 5.5rem;
-
-  --page-space: clamp(1.3rem, 6.5vw, 7rem);
+  --page-space: clamp(1.3rem, 6vw, 7rem);
   --section-space: clamp(5rem, 9vw, 9rem);
-
-  /* Acabamento */
-
-  --radius: 5px;
-
-  --ease-fast: 200ms ease;
-  --ease-normal: 300ms ease;
-  --ease-soft: 650ms cubic-bezier(0.22, 1, 0.36, 1);
-
+  --ease: cubic-bezier(.22, 1, .36, 1);
 }
 
-
-/* =========================================================
-   02. RESET E BASE
-   ========================================================= */
+/* BASE */
 
 *,
 *::before,
@@ -95,17 +48,13 @@ html {
 }
 
 body {
-  min-width: 0;
   margin: 0;
-
-  background-color: var(--ink);
-  color: var(--cream);
-
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
-
+  min-width: 0;
   overflow-x: clip;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-body);
+  line-height: 1.7;
 }
 
 img {
@@ -150,7 +99,7 @@ h3 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--sun);
+  outline: 2px solid var(--ochre);
   outline-offset: 4px;
 }
 
@@ -158,96 +107,47 @@ section[id] {
   scroll-margin-top: 5rem;
 }
 
-
-/* =========================================================
-   03. TIPOGRAFIA EDITORIAL
-   ========================================================= */
-
-.section-title {
-  margin: 0;
-
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 4.3vw, 4.5rem);
-  font-weight: 600;
-
-  letter-spacing: 0.035em;
-  line-height: 1;
-
-  color: var(--ivory);
-}
-
-.section-number {
-  flex-shrink: 0;
-
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-
-  color: var(--sun);
-}
-
-.section-statement {
-  max-width: 31rem;
-  margin: 0.8rem 0 0;
-
-  font-family: var(--font-body);
-  font-size: 0.76rem;
-  font-weight: 400;
-
-  letter-spacing: 0.18em;
-  line-height: 1.9;
-
-  color: var(--muted);
-}
-
-
-/* =========================================================
-   04. HEADER
-   ========================================================= */
+/* CABEÇALHO */
 
 .site-header {
   position: absolute;
   inset: 0 0 auto;
-
-  z-index: 20;
-  width: 100%;
-
+  z-index: 30;
   color: var(--ivory);
 }
 
 .header-container {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 1rem;
-
-  width: 100%;
-  max-width: 1800px;
-
-  min-height: var(--header-height);
-  margin-inline: auto;
-
+  width: min(100%, 1800px);
+  min-height: 5.5rem;
+  margin: auto;
   padding: 1rem clamp(1rem, 2.5vw, 3rem);
 }
 
-
-/* Pequena estrela artística */
-
 .site-brand {
   display: inline-flex;
-  position: relative;
-
   align-items: center;
   justify-self: start;
-
   min-width: 2.7rem;
   min-height: 2.7rem;
 }
 
-.site-brand__symbol {
-  display: block;
-  position: relative;
+.site-brand__name,
+.social-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
+.site-brand__symbol {
+  position: relative;
+  display: block;
   width: 1.9rem;
   height: 1.9rem;
 }
@@ -255,12 +155,9 @@ section[id] {
 .site-brand__symbol::before,
 .site-brand__symbol::after {
   content: "";
-
   position: absolute;
   inset: 0;
-
-  background-color: var(--sun);
-
+  background: var(--ochre);
   clip-path: polygon(
     50% 0,
     55% 43%,
@@ -274,489 +171,305 @@ section[id] {
 }
 
 .site-brand__symbol::after {
-  opacity: 0.75;
-  transform: rotate(45deg) scale(0.64);
-}
-
-/* Mantém o nome para leitores de tela */
-
-.site-brand__name {
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-
-  margin: -1px;
-  padding: 0;
-
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-
-/* Navegação */
-
-.main-navigation {
-  min-width: 0;
+  transform: rotate(45deg) scale(.64);
+  opacity: .75;
 }
 
 .navigation-list {
   display: flex;
-
   justify-content: center;
   align-items: center;
-
   flex-wrap: wrap;
-  gap: clamp(0.8rem, 2.2vw, 2.5rem);
+  gap: clamp(.8rem, 2.2vw, 2.5rem);
 }
 
 .navigation-list a {
-  position: relative;
   display: inline-block;
-
-  padding: 0.65rem 0;
-
+  position: relative;
+  padding: .65rem 0;
   font-family: var(--font-heading);
-  font-size: 0.83rem;
+  font-size: .83rem;
   font-weight: 700;
-
-  letter-spacing: 0.13em;
-
-  color: var(--ivory);
-
-  transition: color var(--ease-fast);
+  letter-spacing: .13em;
+  transition: color .25s ease;
 }
 
 .navigation-list a::after {
   content: "";
-
   position: absolute;
   left: 0;
-  bottom: 0.25rem;
-
+  bottom: .2rem;
   width: 100%;
   height: 1px;
-
-  background-color: var(--gold);
-
+  background: var(--gold);
   transform: scaleX(0);
   transform-origin: left;
-
-  transition: transform var(--ease-normal);
+  transition: transform .3s ease;
 }
 
-.navigation-list a:hover,
-.navigation-list a:focus-visible {
-  color: var(--sun);
+.navigation-list a:hover {
+  color: var(--ochre);
 }
 
-.navigation-list a:hover::after,
-.navigation-list a:focus-visible::after {
+.navigation-list a:hover::after {
   transform: scaleX(1);
 }
 
-
-/* Idiomas */
-
 .language-switcher {
   display: flex;
-
-  align-items: center;
   justify-self: end;
-
-  gap: 0.2rem;
+  align-items: center;
+  gap: .2rem;
 }
 
 .language-button {
-  display: inline-flex;
-
-  justify-content: center;
-  align-items: center;
-
   min-width: 2.7rem;
   min-height: 2.7rem;
-
-  padding: 0.45rem;
-
+  padding: .45rem;
   border: 1px solid transparent;
-  border-radius: 2rem;
-
+  border-radius: 50%;
   background: transparent;
   color: var(--ivory);
-
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: .8rem;
   font-weight: 700;
-
-  letter-spacing: 0.08em;
-
   cursor: pointer;
-
-  transition:
-    color var(--ease-fast),
-    border-color var(--ease-fast);
 }
 
 .language-button.is-active,
 .language-button[aria-pressed="true"] {
   border-color: var(--gold);
-  color: var(--sun);
+  color: var(--ochre);
 }
-
-.language-button:hover {
-  color: var(--sun);
-}
-
-/*
-   A lógica do menu mobile virá com JavaScript.
-   Até lá, a navegação permanece visível.
-*/
 
 .mobile-menu-toggle {
   display: none;
 }
 
-
-/* =========================================================
-   05. HERO — COMPOSIÇÃO CINEMATOGRÁFICA
-   ========================================================= */
+/* =====================================================
+   PRIMEIRA CENA
+   ===================================================== */
 
 .hero {
   position: relative;
   isolation: isolate;
-
   display: flex;
   align-items: center;
-
   width: 100%;
-
   min-height: 100vh;
   min-height: 100svh;
-
-  padding:
-    clamp(9rem, 13vh, 12rem)
-    var(--page-space)
-    clamp(10rem, 15vh, 13rem);
-
-  background-color: var(--earth);
-
+  padding: 7rem var(--page-space) 6rem;
+  background: #372720;
   overflow: clip;
 }
 
-.hero-container {
+/* O palco é criado pelo JavaScript.
+   Mantém a pintura fixa durante a narrativa. */
+
+.has-scroll-story .hero-story-stage {
   position: relative;
-  z-index: 3;
-
-  width: 100%;
-  max-width: var(--container);
-
-  margin-inline: auto;
+  height: 360vh;
+  height: 360svh;
 }
 
-.hero-content {
-  width: 100%;
-  max-width: 970px;
+.has-scroll-story .hero-story-stage > .hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
 }
 
-
-/* Nome principal */
-
-.hero-title {
-  margin: 0;
-
-  font-family: var(--font-heading);
-  font-size: clamp(4.5rem, 8.7vw, 10rem);
-  font-weight: 500;
-
-  line-height: 0.9;
-  letter-spacing: -0.055em;
-
-  white-space: nowrap;
-
-  color: var(--ivory);
-
-  text-shadow: 0 2px 22px rgb(0 0 0 / 28%);
-}
-
-
-/* Profissão */
-
-.hero-profession {
-  margin: 0.75rem 0 0.45rem;
-
-  font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2.4vw, 2.8rem);
-  font-weight: 600;
-
-  line-height: 1.2;
-  letter-spacing: 0.13em;
-
-  color: var(--ivory);
-}
-
-
-/* Especialidades */
-
-.hero-specialties {
-  display: inline-block;
-
-  max-width: 100%;
-
-  margin: 0;
-  padding-top: 0.5rem;
-
-  border-top: 1px solid var(--line);
-
-  font-family: var(--font-heading);
-  font-size: clamp(0.7rem, 0.95vw, 0.98rem);
-  font-weight: 600;
-
-  letter-spacing: 0.13em;
-  line-height: 1.7;
-
-  color: var(--cream);
-}
-
-
-/* Assinatura manuscrita */
-
-.hero-manifesto {
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-
-  width: fit-content;
-  max-width: 100%;
-
-  margin:
-    clamp(2.5rem, 4vw, 4rem)
-    0
-    2rem
-    1.5rem;
-
-  font-family: var(--font-handwritten);
-  font-size: clamp(2.8rem, 4vw, 4.6rem);
-
-  font-weight: 400;
-  line-height: 0.8;
-
-  color: var(--sun);
-
-  transform: rotate(-5deg);
-
-  text-shadow: 0 2px 12px rgb(0 0 0 / 38%);
-}
-
-.hero-manifesto span {
-  display: block;
-  white-space: nowrap;
-}
-
-.hero-manifesto span:nth-child(2) {
-  margin-left: 0.65rem;
-}
-
-.hero-manifesto span:nth-child(3) {
-  margin-left: 0.2rem;
-}
-
-
-/* Ações */
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-
-  align-items: center;
-
-  gap: 0.9rem;
-  margin-left: 1.5rem;
-}
-
-
-/* Indicador de exploração */
-
-.hero-scroll-indicator {
-  position: absolute;
-
-  z-index: 6;
-
-  right: var(--page-space);
-  bottom: clamp(7rem, 12vh, 10rem);
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 1rem;
-
-  font-family: var(--font-heading);
-  font-size: 0.76rem;
-  font-weight: 600;
-
-  letter-spacing: 0.15em;
-
-  color: var(--ivory);
-}
-
-.hero-scroll-indicator__symbol {
-  position: relative;
-
-  display: inline-flex;
-  align-items: flex-start;
-  justify-content: center;
-
-  width: 1.3rem;
-  height: 2.3rem;
-
-  padding-top: 0.4rem;
-
-  border: 1px solid var(--gold);
-  border-radius: 1rem;
-}
-
-.hero-scroll-indicator__symbol::after {
-  content: "";
-
-  width: 2px;
-  height: 0.55rem;
-
-  border-radius: 2px;
-
-  background-color: var(--sun);
-}
-
-
-/* =========================================================
-   06. A PINTURA ORIGINAL
-   ========================================================= */
+/* =====================================================
+   CORES MESCLADAS E VIVAS
+   ===================================================== */
 
 /*
-   A VINHA VERMELHA — PNG
+   Três camadas largas de pigmentos.
+   Elas se misturam pela transparência e
+   pelo desfoque, sem contornos de círculos.
 
-   Não substituímos a imagem.
-
-   O fundo usa a própria pintura e mantém
-   suas proporções com object-fit: cover.
-
-   O movimento ocorre SOMENTE na imagem.
+   A animação é contínua e independente
+   do scroll.
 */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -22%;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse 65% 68% at 13% 31%,
+      rgb(173 71 39 / 95%) 0%,
+      rgb(128 54 36 / 64%) 42%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 62% 58% at 85% 18%,
+      rgb(225 162 73 / 90%) 0%,
+      rgb(174 104 48 / 50%) 45%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 75% 65% at 53% 88%,
+      rgb(62 89 58 / 97%) 0%,
+      rgb(45 67 48 / 70%) 48%,
+      transparent 84%
+    ),
+    linear-gradient(
+      130deg,
+      #512d28,
+      #805032 33%,
+      #45513a 67%,
+      #243c32
+    );
+
+  background-blend-mode:
+    screen,
+    soft-light,
+    normal,
+    normal;
+
+  filter: blur(42px) saturate(1.22);
+
+  animation:
+    hero-pigments 20s ease-in-out infinite alternate;
+}
+
+/* Uma segunda camada cruza as primeiras. */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .7;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 10%,
+      rgb(224 160 64 / 27%) 33%,
+      rgb(130 54 44 / 31%) 55%,
+      transparent 85%
+    ),
+    radial-gradient(
+      ellipse at 65% 45%,
+      rgb(99 119 61 / 35%),
+      transparent 65%
+    );
+
+  filter: blur(54px);
+  mix-blend-mode: screen;
+
+  animation:
+    crossing-pigments 15s ease-in-out infinite alternate;
+}
+
+@keyframes hero-pigments {
+  0% {
+    transform: translate3d(-4%, 1%, 0)
+      rotate(-3deg) scale(1.04);
+    filter: blur(42px) saturate(1.1);
+  }
+
+  50% {
+    transform: translate3d(3%, -4%, 0)
+      rotate(2deg) scale(1.12);
+    filter: blur(48px) saturate(1.4);
+  }
+
+  100% {
+    transform: translate3d(-1%, 4%, 0)
+      rotate(-2deg) scale(1.08);
+    filter: blur(38px) saturate(1.2);
+  }
+}
+
+@keyframes crossing-pigments {
+  from {
+    transform: translate3d(5%, -3%, 0)
+      rotate(5deg) scale(1);
+    opacity: .45;
+  }
+
+  to {
+    transform: translate3d(-5%, 4%, 0)
+      rotate(-4deg) scale(1.14);
+    opacity: .85;
+  }
+}
+
+/* A pintura fica ACIMA das cores.
+   Quando perde opacidade, elas aparecem. */
 
 .hero-artwork {
   position: absolute;
   inset: 0;
-
-  z-index: 0;
-
-  overflow: hidden;
+  z-index: 1;
   pointer-events: none;
-
-  background-color: var(--earth);
+  overflow: hidden;
 }
 
 .hero-artwork__layer {
   position: absolute;
-
   inset: -3%;
-
   overflow: hidden;
-
-  background-image: url("../assets/a-vinha-vermelha.png");
-  background-size: cover;
-  background-position: center 40%;
-  background-repeat: no-repeat;
+  background:
+    url("../assets/a-vinha-vermelha.png")
+    center 40% / cover no-repeat;
 }
 
 .hero-artwork__image {
-  display: block;
-
   width: 100%;
   height: 100%;
-
   max-width: none;
-
   object-fit: cover;
   object-position: center 40%;
-
-  filter: saturate(1.04);
-
-  transform-origin: center center;
-
-  animation:
-    painting-alive
-    90s
-    ease-in-out
-    infinite
-    alternate;
+  transform-origin: center;
+  animation: painting-alive 90s ease-in-out infinite alternate;
 }
-
-
-/* Respiração quase imperceptível */
 
 @keyframes painting-alive {
-
-  0% {
-    transform: scale(1.02) translate3d(0, 0, 0);
+  from {
+    transform: scale(1.02);
   }
 
-  100% {
-    transform:
-      scale(1.045)
-      translate3d(-0.3%, -0.2%, 0);
+  to {
+    transform: scale(1.045)
+      translate3d(-.3%, -.2%, 0);
   }
-
 }
 
-
-/* Luz original valorizada */
-
-.hero-artwork__light {
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at 78% 16%,
-      rgb(240 202 115 / 9%) 0%,
-      transparent 43%
-    );
-}
-
-
-/* Profundidade */
-
-.hero-artwork__depth {
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at 52% 40%,
-      transparent 30%,
-      rgb(20 13 11 / 22%) 100%
-    );
-}
-
-
-/*
-   Proteção da leitura.
-
-   A pintura continua colorida.
-   Apenas a região dos textos recebe
-   uma camada mais escura.
-*/
-
+.hero-artwork__depth,
+.hero-artwork__light,
 .hero-artwork__overlay {
   position: absolute;
   inset: 0;
-
   pointer-events: none;
+}
 
+.hero-artwork__depth {
+  background: radial-gradient(
+    ellipse at 52% 40%,
+    transparent 30%,
+    rgb(20 13 11 / 22%) 100%
+  );
+}
+
+.hero-artwork__light {
+  background: radial-gradient(
+    ellipse at 78% 16%,
+    rgb(240 202 115 / 9%),
+    transparent 43%
+  );
+}
+
+.hero-artwork__overlay {
   background:
     linear-gradient(
       90deg,
@@ -773,650 +486,529 @@ section[id] {
     );
 }
 
+/* TEXTO DO HERO */
 
-/* =========================================================
-   07. REDES SOCIAIS
-   ========================================================= */
+.hero-container {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 970px;
+}
+
+.hero-title {
+  margin: 0;
+  color: var(--ivory);
+  font-size: clamp(4.3rem, 8.7vw, 10rem);
+  line-height: .9;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+  text-shadow: 0 2px 22px rgb(0 0 0 / 28%);
+}
+
+.hero-profession {
+  margin: .75rem 0 .45rem;
+  color: var(--ivory);
+  font-size: clamp(1.4rem, 2.4vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: .13em;
+  line-height: 1.2;
+}
+
+.hero-specialties {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  padding-top: .5rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-heading);
+  font-size: clamp(.7rem, .95vw, .98rem);
+  font-weight: 600;
+  letter-spacing: .13em;
+  line-height: 1.7;
+}
+
+/* FRASES MANUSCRITAS */
+
+.hero-manifesto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  margin: clamp(1.5rem, 3vw, 3rem) 0 1.8rem 1.5rem;
+  color: var(--ochre);
+  font-family: var(--font-handwritten);
+  font-size: clamp(2.6rem, 3.9vw, 4.6rem);
+  line-height: .82;
+  transform: rotate(-5deg);
+  text-shadow: 0 2px 12px rgb(0 0 0 / 38%);
+}
+
+.hero-manifesto span {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-manifesto span:nth-child(2) {
+  margin-left: .65rem;
+}
+
+.hero-manifesto span:nth-child(3) {
+  margin-left: .2rem;
+}
+
+/* O JS controla a entrada e a saída.
+   As frases preservam seu espaço. */
+
+.has-scroll-story .hero-manifesto span {
+  opacity: 0;
+  transform: translate3d(0, 17px, 0);
+  transition:
+    opacity .55s ease,
+    transform .6s var(--ease);
+}
+
+.has-scroll-story .hero-manifesto span.is-written {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* BOTÕES */
+
+.hero-actions,
+.featured-project__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .9rem;
+}
+
+.hero-actions {
+  margin-left: 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  min-height: 3.25rem;
+  padding: .8rem 1.45rem;
+  border: 1px solid var(--gold);
+  border-radius: 5px;
+  color: var(--ivory);
+  font-family: var(--font-heading);
+  font-size: .87rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-align: center;
+  transition:
+    color .3s ease,
+    background-color .3s ease;
+}
+
+.button--primary {
+  background: var(--ochre);
+  color: var(--ink);
+}
+
+.button--outline {
+  background: rgb(14 24 22 / 70%);
+}
+
+.button--primary:hover {
+  background: var(--ivory);
+}
+
+.button--outline:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.button__arrow::before,
+.contact-link__arrow::before {
+  content: "→";
+  font-size: 1.3rem;
+}
+
+/* REDES SOCIAIS */
 
 .hero-social {
   position: absolute;
-
   z-index: 7;
-
-  left: clamp(0.7rem, 1.8vw, 2rem);
-  bottom: clamp(8rem, 16vh, 12rem);
+  left: clamp(.7rem, 1.8vw, 2rem);
+  bottom: clamp(4.8rem, 12vh, 9rem);
 }
 
 .hero-social__list {
   display: flex;
   flex-direction: column;
-
   align-items: center;
-
-  gap: 0.55rem;
+  gap: .55rem;
 }
 
 .hero-social a {
   display: inline-flex;
-
-  align-items: center;
   justify-content: center;
-
+  align-items: center;
   width: 2.65rem;
   height: 2.65rem;
-
   border: 1px solid var(--line);
   border-radius: 50%;
-
-  background-color: rgb(18 28 24 / 70%);
-
+  background: rgb(18 28 24 / 70%);
   color: var(--ivory);
-
   transition:
-    background-color var(--ease-normal),
-    border-color var(--ease-normal),
-    color var(--ease-normal);
+    border-color .3s ease,
+    color .3s ease,
+    background-color .3s ease;
 }
 
 .hero-social a:hover {
-  background-color: var(--forest);
-  border-color: var(--sun);
-  color: var(--sun);
+  border-color: var(--ochre);
+  background: var(--forest);
+  color: var(--ochre);
 }
-
-.social-label {
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-
-  padding: 0;
-  margin: -1px;
-
-  overflow: hidden;
-  clip-path: inset(50%);
-
-  white-space: nowrap;
-}
-
-
-/* Ícones sem biblioteca externa */
 
 .social-icon {
   display: inline-block;
-
   width: 1.2rem;
   height: 1.2rem;
-
-  flex-shrink: 0;
-
   background-color: currentColor;
-
   -webkit-mask-image: var(--social-symbol);
   mask-image: var(--social-symbol);
-
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-
   -webkit-mask-position: center;
   mask-position: center;
-
   -webkit-mask-size: contain;
   mask-size: contain;
 }
 
-
-/* GitHub */
-
 .social-icon--github {
-  --social-symbol: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.21.68-.48v-1.69c-2.78.61-3.37-1.18-3.37-1.18-.45-1.14-1.1-1.44-1.1-1.44-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.64.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0 1 12 6.8c.85 0 1.71.12 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.78c0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z'/%3E%3C/svg%3E");
+  --social-symbol: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.21.68-.48v-1.69c-2.78.61-3.37-1.18-3.37-1.18-.45-1.14-1.1-1.44-1.1-1.44-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.64.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0 1 12 6.8c.85 0 1.71.12 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.78c0 .27.18.58.69.48A10 10 0 0 0 12 2z'/%3E%3C/svg%3E");
 }
-
-
-/* LinkedIn */
 
 .social-icon--linkedin {
   --social-symbol: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.11-.02-2.53-1.54-2.53-1.54 0-1.78 1.2-1.78 2.45v4.73H9.53V9.2h2.83v1.3h.04c.39-.74 1.36-1.53 2.79-1.53 2.99 0 3.56 1.97 3.56 4.53v5.25z'/%3E%3C/svg%3E");
 }
 
-
-/* WhatsApp */
-
 .social-icon--whatsapp {
-  --social-symbol: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12.04 2A9.94 9.94 0 0 0 3.5 17.03L2 22l5.12-1.35A9.98 9.98 0 1 0 12.04 2zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.04.8.81-2.96-.2-.31A8.24 8.24 0 1 1 12.04 20.2zm4.52-6.17c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.13-.16.25-.64.8-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.09-.17.04-.31-.02-.44-.06-.13-.56-1.35-.76-1.84-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z'/%3E%3C/svg%3E");
+  --social-symbol: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2a10 10 0 0 0-8.55 15.15L2 22l5.16-1.35A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.04.8.81-2.97-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.53-6.17c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.13-.16.25-.64.8-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.09-.17.04-.31-.02-.44-.06-.13-.56-1.35-.76-1.84-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z'/%3E%3C/svg%3E");
 }
-
-
-/* E-mail */
 
 .social-icon--email {
   --social-symbol: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
 }
 
+/* Indicador antigo oculto */
 
-/* =========================================================
-   08. BOTÕES
-   ========================================================= */
-
-.button {
-  display: inline-flex;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.3rem;
-
-  min-height: 3.25rem;
-
-  padding: 0.85rem 1.4rem;
-
-  border: 1px solid var(--gold);
-  border-radius: var(--radius);
-
-  font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 700;
-
-  letter-spacing: 0.1em;
-  line-height: 1.25;
-  text-align: center;
-
-  transition:
-    background-color var(--ease-normal),
-    color var(--ease-normal),
-    border-color var(--ease-normal);
+.hero-scroll-indicator {
+  display: none;
 }
 
-.button--primary {
-  background-color: var(--ochre);
-  color: var(--ink);
-}
-
-.button--outline {
-  background-color: rgb(16 25 21 / 68%);
-  color: var(--ivory);
-}
-
-.button--primary:hover {
-  background-color: var(--ivory);
-}
-
-.button--outline:hover {
-  background-color: var(--gold);
-  color: var(--ink);
-}
-
-.button__arrow::before {
-  content: "→";
-
-  font-family: Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1;
-}
-
-
-/* =========================================================
-   09. A PINTURA SE DISSOLVE
-   ========================================================= */
-
-/*
-   A transição não será uma onda.
-
-   O CSS utiliza camadas irregulares com
-   ocre, terracota, verde e marrom.
-
-   A pintura também reaparece de maneira
-   controlada na seção Sobre Mim, permitindo
-   a sensação de continuidade.
-*/
+/* BORDA ARTÍSTICA INFERIOR */
 
 .hero-brush-transition {
   position: absolute;
-
-  left: 0;
-  bottom: -1px;
-
   z-index: 8;
-
-  width: 100%;
-  height: clamp(6rem, 13vw, 12rem);
-
+  inset: auto 0 -1px;
+  height: clamp(5rem, 10vw, 9rem);
   overflow: hidden;
   pointer-events: none;
 }
 
 .brush-stroke {
   position: absolute;
-  display: block;
-
   left: -2%;
   right: -2%;
+  bottom: 0;
 }
-
-
-/* Pincelada terrosa principal */
 
 .brush-stroke--primary {
-  bottom: 0;
-
-  height: 80%;
-
-  background:
-    linear-gradient(
-      180deg,
-      #5f3727 0%,
-      #432d25 35%,
-      #352923 70%,
-      #302720 100%
-    );
-
+  height: 75%;
+  background: linear-gradient(
+    #70432d,
+    #493226 55%,
+    #372720
+  );
   clip-path: polygon(
-    0 54%,
-    7% 45%,
-    15% 58%,
-    24% 39%,
-    32% 52%,
-    42% 31%,
-    52% 44%,
-    62% 26%,
-    72% 39%,
-    83% 25%,
-    92% 37%,
-    100% 20%,
-    100% 100%,
-    0 100%
+    0 55%, 12% 41%, 24% 58%,
+    38% 35%, 51% 48%, 64% 30%,
+    77% 46%, 88% 27%, 100% 40%,
+    100% 100%, 0 100%
   );
 }
-
-
-/* Pincelada secundária com tons da tela */
 
 .brush-stroke--secondary {
-  bottom: 19%;
-
-  height: 55%;
-
-  opacity: 0.86;
-
-  background:
-    linear-gradient(
-      175deg,
-      rgb(229 186 103 / 32%) 0%,
-      rgb(155 69 43 / 82%) 24%,
-      #384431 65%,
-      #302720 100%
-    );
-
+  bottom: 28%;
+  height: 48%;
+  opacity: .75;
+  background: linear-gradient(
+    170deg,
+    var(--ochre),
+    var(--terracotta) 43%,
+    var(--olive)
+  );
   clip-path: polygon(
-    0 61%,
-    10% 37%,
-    23% 72%,
-    37% 39%,
-    51% 57%,
-    64% 23%,
-    78% 52%,
-    90% 29%,
-    100% 45%,
-    100% 86%,
-    87% 64%,
-    71% 94%,
-    55% 69%,
-    42% 95%,
-    25% 77%,
-    9% 96%,
-    0 84%
+    0 62%, 13% 40%, 26% 73%,
+    40% 32%, 54% 65%, 68% 25%,
+    82% 60%, 94% 36%, 100% 47%,
+    100% 85%, 85% 68%, 69% 96%,
+    55% 71%, 39% 94%, 21% 78%,
+    8% 97%, 0 84%
   );
 }
 
-
-/* =========================================================
-   10. ESTRUTURA DAS SEÇÕES
-   ========================================================= */
+/* =====================================================
+   SEÇÕES E FUNDO DE CORES MISTURADAS
+   ===================================================== */
 
 .section {
   position: relative;
-
-  padding:
-    var(--section-space)
-    var(--page-space);
-
   isolation: isolate;
-
-  background-color: var(--earth);
-
+  padding: var(--section-space) var(--page-space);
   overflow: clip;
+  background-color: var(--earth);
 }
 
 .section-container {
   position: relative;
   z-index: 2;
-
-  width: 100%;
-  max-width: var(--container);
-
+  width: min(100%, var(--container));
   margin-inline: auto;
 }
+
+/* Camada colorida CONTÍNUA nas seções */
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse 70% 65% at 15% 30%,
+      rgb(180 79 44 / 53%),
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 65% 65% at 83% 68%,
+      rgb(225 165 81 / 39%),
+      transparent 77%
+    ),
+    radial-gradient(
+      ellipse 75% 80% at 48% 25%,
+      rgb(75 107 59 / 43%),
+      transparent 79%
+    );
+
+  background-blend-mode: screen;
+
+  filter: blur(52px) saturate(1.12);
+
+  animation:
+    blended-colors 17s ease-in-out infinite alternate;
+}
+
+@keyframes blended-colors {
+  0% {
+    transform: translate3d(
+      -4%,
+      calc(var(--paint-shift, 0px) - 2%),
+      0
+    ) rotate(-2deg) scale(1.04);
+    opacity: .65;
+  }
+
+  50% {
+    transform: translate3d(
+      4%,
+      calc(var(--paint-shift, 0px) + 3%),
+      0
+    ) rotate(2deg) scale(1.13);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(
+      -2%,
+      calc(var(--paint-shift, 0px) + 1%),
+      0
+    ) rotate(-1deg) scale(1.07);
+    opacity: .8;
+  }
+}
+
+/* TÍTULOS EDITORIAIS */
 
 .section-header {
   display: flex;
   align-items: baseline;
-
-  gap: clamp(1.1rem, 3vw, 3rem);
-
-  margin-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 3vw, 3rem);
+  margin-bottom: clamp(2.5rem, 4vw, 4.5rem);
 }
 
-.section-header__content {
-  min-width: 0;
+.section-number {
+  flex-shrink: 0;
+  color: var(--ochre);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--ivory);
+  font-size: clamp(2.5rem, 4.3vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: .035em;
+}
+
+.section-statement {
+  max-width: 31rem;
+  margin: .8rem 0 0;
+  color: var(--muted);
+  font-size: .76rem;
+  letter-spacing: .16em;
+  line-height: 1.9;
+}
+
+/* SOBRE MIM */
+
+.section--about {
+  background:
+    linear-gradient(
+      180deg,
+      #372720,
+      #493125 46%,
+      #303b2d
+    );
+}
+
+.section--about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .38;
+
+  background:
+    url("../assets/a-vinha-vermelha.png")
+    center 70% / cover no-repeat;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgb(0 0 0 / 55%) 42%,
+    transparent 93%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgb(0 0 0 / 55%) 42%,
+    transparent 93%
+  );
 }
 
 .section-artwork {
   position: absolute;
   inset: 0;
-
   z-index: 0;
-
   pointer-events: none;
 }
-
-
-/* =========================================================
-   11. SOBRE MIM — A PINTURA AINDA RESPIRA
-   ========================================================= */
-
-/*
-   Aqui a pintura continua presente.
-
-   Seu desenho começa visível no alto e
-   desaparece progressivamente em uma
-   composição terrosa e verde.
-
-   Sem background-attachment: fixed.
-*/
-
-.section--about {
-  position: relative;
-
-  padding-top: clamp(5rem, 8vw, 8rem);
-  padding-bottom: clamp(7rem, 12vw, 12rem);
-
-  background:
-    linear-gradient(
-      180deg,
-      #302720 0%,
-      #493125 27%,
-      #47352a 58%,
-      #34372b 83%,
-      #2b382c 100%
-    );
-}
-
-
-/* Continuação visual da obra original */
-
-.section--about::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 0;
-
-  background-image: url("../assets/a-vinha-vermelha.png");
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 72%;
-
-  opacity: 0.42;
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      black 0%,
-      black 8%,
-      rgb(0 0 0 / 68%) 35%,
-      transparent 92%
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black 0%,
-      black 8%,
-      rgb(0 0 0 / 68%) 35%,
-      transparent 92%
-    );
-
-  pointer-events: none;
-}
-
-
-/* Suaviza o encontro entre obra e conteúdo */
-
-.section--about::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgb(48 39 32 / 30%) 0%,
-      rgb(48 39 32 / 47%) 48%,
-      rgb(43 56 44 / 75%) 100%
-    );
-
-  pointer-events: none;
-}
-
-
-/* Textura de cor */
-
-.section-artwork--about {
-  opacity: 0.48;
-
-  background:
-    radial-gradient(
-      ellipse at 8% 28%,
-      rgb(114 49 29 / 42%),
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse at 90% 80%,
-      rgb(38 68 49 / 45%),
-      transparent 55%
-    );
-}
-
-
-/* Layout editorial */
 
 .section--about .section-container {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
-  align-items: center;
-
+  grid-template-columns: 1fr 1fr;
   gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
 }
 
 .section--about .section-header {
   margin-bottom: 0;
 }
 
-.section--about .section-title {
-  margin-bottom: 0.75rem;
-}
-
-
-/* Texto de apresentação */
-
 .about-content {
-  min-width: 0;
-
   padding-left: clamp(1.5rem, 3vw, 3rem);
-
   border-left: 1px solid var(--line);
 }
 
 .about-description {
   max-width: 42rem;
-
   margin: 0;
-
-  font-size: clamp(0.98rem, 1.1vw, 1.1rem);
-  line-height: 1.95;
-
   color: var(--ivory);
-
-  text-shadow: 0 1px 12px rgb(20 16 12 / 28%);
+  font-size: clamp(.98rem, 1.1vw, 1.1rem);
+  line-height: 1.9;
 }
 
-
-/* =========================================================
-   12. TECNOLOGIAS — VERDE E DOURADO
-   ========================================================= */
-
-/*
-   A seção nasce dos verdes presentes
-   nos campos e detalhes da pintura.
-*/
+/* TECNOLOGIAS */
 
 .section--technologies {
-  background:
-    radial-gradient(
-      ellipse at 94% 14%,
-      rgb(102 91 39 / 20%),
-      transparent 52%
-    ),
-    linear-gradient(
-      155deg,
-      #2b382c 0%,
-      #24372e 50%,
-      #1c302b 100%
-    );
-}
-
-.section--technologies::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 0;
-
-  background:
-    radial-gradient(
-      ellipse at 0 90%,
-      rgb(155 69 43 / 10%),
-      transparent 52%
-    );
-
-  pointer-events: none;
-}
-
-.technologies-content {
-  width: 100%;
+  background: linear-gradient(
+    155deg,
+    #303b2d,
+    #24392e 55%,
+    #1d3029
+  );
 }
 
 .technologies-list {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: clamp(1rem, 5vw, 5rem);
 }
 
 .technology-item {
   display: flex;
   align-items: baseline;
-
   min-width: 0;
-
-  padding: 1.45rem 0;
-
+  padding: 1.3rem 0;
   border-bottom: 1px solid var(--line);
-
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.35vw, 2.5rem);
-
-  line-height: 1.25;
-
   color: var(--ivory);
-
-  transition: color var(--ease-normal);
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.3vw, 2.5rem);
+  line-height: 1.25;
 }
 
 .technology-item::before {
   content: "✦";
-
   flex-shrink: 0;
-
-  margin-right: 0.7rem;
-
-  font-size: 0.55em;
-
-  color: var(--gold);
+  margin-right: .65rem;
+  color: var(--ochre);
+  font-size: .55em;
 }
 
 .technology-item span {
-  min-width: 0;
   overflow-wrap: anywhere;
 }
 
-.technology-item:hover {
-  color: var(--sun);
-}
-
-
-
-/* =========================================================
-   13. RAG TUTOR — REVELAÇÃO POR PINCELADAS
-   ========================================================= */
-
-/*
-   Agora a imagem real do RAG Tutor aparece
-   como se estivesse sendo revelada por
-   pinceladas horizontais.
-
-   Caminho da imagem:
-   ../assets/imagem-rag-tutor.png
-*/
+/* RAG TUTOR */
 
 .section--featured-project {
-  background:
-    radial-gradient(
-      ellipse at 90% 20%,
-      rgb(154 76 44 / 23%),
-      transparent 60%
-    ),
-    linear-gradient(
-      160deg,
-      #1c302b 0%,
-      #342b25 55%,
-      #402a23 100%
-    );
+  background: linear-gradient(
+    155deg,
+    #1d3029,
+    #342b25 55%,
+    #402a23
+  );
 }
 
 .featured-project {
   display: grid;
-
   grid-template-columns:
-    minmax(0, 0.95fr)
+    minmax(0, .95fr)
     minmax(0, 1.05fr);
-
-  align-items: center;
-
   gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
 }
 
 .featured-project__content {
@@ -1425,468 +1017,213 @@ section[id] {
 
 .featured-project__title {
   margin-bottom: 1.2rem;
-
-  font-size: clamp(3.8rem, 7vw, 7.4rem);
-  font-weight: 500;
-
-  letter-spacing: -0.045em;
-
   color: var(--ivory);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  letter-spacing: -.04em;
 }
 
 .featured-project__description {
-  max-width: 40rem;
-
-  margin-bottom: 1.5rem;
-
-  font-size: 1rem;
-  line-height: 1.9;
-
+  max-width: 39rem;
   color: var(--muted);
+  line-height: 1.9;
 }
 
 .featured-project__technologies {
   display: flex;
   flex-wrap: wrap;
-
-  gap: 0.55rem 1rem;
-
+  gap: .5rem 1rem;
   margin: 1.8rem 0 2rem;
 }
 
 .featured-project__technologies li {
-  font-size: 0.82rem;
-
-  letter-spacing: 0.05em;
-
-  color: var(--sun);
+  color: var(--ochre);
+  font-size: .82rem;
 }
 
 .featured-project__technologies li:not(:last-child)::after {
   content: "·";
-
   margin-left: 1rem;
-
-  color: var(--muted);
 }
 
-.featured-project__actions {
-  display: flex;
-  flex-wrap: wrap;
-
-  align-items: center;
-  gap: 0.85rem;
-}
-
-/* ---------------------------------------------------------
-   ÁREA VISUAL DO RAG TUTOR
-   --------------------------------------------------------- */
+/* Imagem leve, sem moldura quadrada */
 
 .featured-project__visual {
-  position: relative;
-
-  width: 100%;
   min-width: 0;
-
-  justify-self: end;
-
+  width: 100%;
   aspect-ratio: 16 / 10;
-
-  padding: clamp(0.75rem, 1.8vw, 1.2rem);
-
-  border: 1px solid rgb(229 186 103 / 26%);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgb(229 186 103 / 5%),
-      rgb(18 34 30 / 25%)
-    );
-
-  overflow: hidden;
-}
-
-/* detalhe editorial fino no canto */
-
-.featured-project__visual::before {
-  content: "";
-
-  position: absolute;
-
-  top: -0.35rem;
-  right: -0.35rem;
-
-  width: 3.2rem;
-  height: 3.2rem;
-
-  border-top: 1px solid var(--sun);
-  border-right: 1px solid var(--sun);
-
-  opacity: 0.9;
-
-  pointer-events: none;
 }
 
 .featured-project__preview-frame {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
   height: 100%;
-
   overflow: hidden;
-  isolation: isolate;
-
-  border: 1px solid rgb(229 186 103 / 14%);
 
   background:
-    radial-gradient(
-      ellipse at 35% 28%,
-      rgb(82 101 70 / 70%),
-      rgb(27 49 43 / 85%) 48%,
-      rgb(12 29 26 / 96%) 100%
-    );
-}
-
-/*
-   Camada artística de fundo:
-   manchas e tons antes da revelação da imagem.
-*/
-
-.featured-project__preview-frame::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  background:
-    radial-gradient(
-      ellipse at 16% 50%,
-      rgb(229 186 103 / 11%),
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 82% 25%,
-      rgb(184 93 55 / 16%),
-      transparent 40%
-    ),
     linear-gradient(
-      180deg,
-      rgb(255 247 231 / 4%),
-      rgb(0 0 0 / 0%)
+      140deg,
+      #46503a,
+      #24392e 65%,
+      #15251f
     );
-
-  pointer-events: none;
 }
-
-/*
-   A imagem real do RAG Tutor é revelada
-   por faixas horizontais irregulares,
-   lembrando pinceladas.
-*/
 
 .featured-project__preview-frame::after {
   content: "";
-
   position: absolute;
-
-  inset: clamp(0.7rem, 1.6vw, 1rem);
-
-  z-index: 2;
+  inset: 0;
 
   background:
-    linear-gradient(
-      180deg,
-      rgb(255 247 231 / 4%),
-      rgb(0 0 0 / 0%)
-    ),
-    url("../assets/imagem-rag-tutor.png") center / cover no-repeat;
+    url("../assets/imagem-rag-tutor.png")
+    center / contain no-repeat;
 
-  border: 1px solid rgb(229 186 103 / 14%);
+  transform-origin: center;
 
-  box-shadow: 0 18px 40px rgb(0 0 0 / 20%);
-
-  filter: saturate(1.03) contrast(1.03);
-
-  opacity: 1;
-  clip-path: inset(0 0 0 0);
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0 2%,
-      #000 2% 11%,
-      transparent 11.2% 13.8%,
-      #000 14% 24%,
-      transparent 24.3% 27%,
-      #000 27.3% 38.5%,
-      transparent 38.8% 41.6%,
-      #000 41.8% 52.5%,
-      transparent 52.9% 55.5%,
-      #000 55.8% 68.5%,
-      transparent 68.9% 71.4%,
-      #000 71.8% 83.5%,
-      transparent 83.8% 86.4%,
-      #000 86.7% 98%,
-      transparent 98% 100%
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0 2%,
-      #000 2% 11%,
-      transparent 11.2% 13.8%,
-      #000 14% 24%,
-      transparent 24.3% 27%,
-      #000 27.3% 38.5%,
-      transparent 38.8% 41.6%,
-      #000 41.8% 52.5%,
-      transparent 52.9% 55.5%,
-      #000 55.8% 68.5%,
-      transparent 68.9% 71.4%,
-      #000 71.8% 83.5%,
-      transparent 83.8% 86.4%,
-      #000 86.7% 98%,
-      transparent 98% 100%
-    );
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
-/* Pequenas pinceladas soltas por cima */
-
-.featured-project__preview-frame .brush-overlay,
-.featured-project__preview-frame .paint-overlay {
-  display: none;
-}
-
-/* ---------------------------------------------------------
-   ANIMAÇÃO DA REVELAÇÃO
-   --------------------------------------------------------- */
-
-@keyframes rag-brush-reveal {
-
-  from {
-    opacity: 0.35;
-    clip-path: inset(0 100% 0 0);
-    transform: translate3d(-1.2%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    clip-path: inset(0 0 0 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-}
-
-@keyframes rag-brush-glow {
-
-  from {
-    opacity: 0.2;
-    transform: translateX(-8%);
-  }
-
-  to {
-    opacity: 0.42;
-    transform: translateX(8%);
-  }
-
+  animation:
+    rag-breathing 17s ease-in-out infinite alternate;
 }
 
 /*
-   Fallback:
-   em navegadores sem suporte a animation-timeline,
-   a imagem simplesmente aparece pronta.
-
-   Em navegadores compatíveis, ela vai sendo
-   revelada conforme a seção entra na tela.
+   O JS muda a largura de oito pinceladas.
+   A máscara desaparece completamente
+   ao terminar, deixando a imagem inteira.
 */
 
-@supports (animation-timeline: view()) {
+.paint-ready .featured-project__preview-frame::after {
+  -webkit-mask-image:
+    linear-gradient(to right, black 92%, transparent),
+    linear-gradient(to right, black 90%, transparent),
+    linear-gradient(to right, black 93%, transparent),
+    linear-gradient(to right, black 89%, transparent),
+    linear-gradient(to right, black 92%, transparent),
+    linear-gradient(to right, black 90%, transparent),
+    linear-gradient(to right, black 94%, transparent),
+    linear-gradient(to right, black 91%, transparent);
 
-  @media (prefers-reduced-motion: no-preference) {
+  mask-image:
+    linear-gradient(to right, black 92%, transparent),
+    linear-gradient(to right, black 90%, transparent),
+    linear-gradient(to right, black 93%, transparent),
+    linear-gradient(to right, black 89%, transparent),
+    linear-gradient(to right, black 92%, transparent),
+    linear-gradient(to right, black 90%, transparent),
+    linear-gradient(to right, black 94%, transparent),
+    linear-gradient(to right, black 91%, transparent);
 
-    .featured-project__preview-frame::after {
-      clip-path: inset(0 100% 0 0);
+  -webkit-mask-size:
+    var(--stroke-1, 0%) 12.5%,
+    var(--stroke-2, 0%) 12.5%,
+    var(--stroke-3, 0%) 12.5%,
+    var(--stroke-4, 0%) 12.5%,
+    var(--stroke-5, 0%) 12.5%,
+    var(--stroke-6, 0%) 12.5%,
+    var(--stroke-7, 0%) 12.5%,
+    var(--stroke-8, 0%) 12.5%;
 
-      animation-name: rag-brush-reveal;
-      animation-duration: 1s;
-      animation-timing-function: ease-out;
-      animation-fill-mode: both;
+  mask-size:
+    var(--stroke-1, 0%) 12.5%,
+    var(--stroke-2, 0%) 12.5%,
+    var(--stroke-3, 0%) 12.5%,
+    var(--stroke-4, 0%) 12.5%,
+    var(--stroke-5, 0%) 12.5%,
+    var(--stroke-6, 0%) 12.5%,
+    var(--stroke-7, 0%) 12.5%,
+    var(--stroke-8, 0%) 12.5%;
 
-      animation-timeline: view();
-      animation-range: entry 5% cover 55%;
-    }
+  -webkit-mask-position:
+    left 0%,
+    left 14.2857%,
+    left 28.5714%,
+    left 42.8571%,
+    left 57.1429%,
+    left 71.4286%,
+    left 85.7143%,
+    left 100%;
 
-    .featured-project__preview-frame::before {
-      animation-name: rag-brush-glow;
-      animation-duration: 1s;
-      animation-timing-function: ease-out;
-      animation-fill-mode: both;
+  mask-position:
+    left 0%,
+    left 14.2857%,
+    left 28.5714%,
+    left 42.8571%,
+    left 57.1429%,
+    left 71.4286%,
+    left 85.7143%,
+    left 100%;
 
-      animation-timeline: view();
-      animation-range: entry 5% cover 60%;
-    }
-
-  }
-
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
-/* ---------------------------------------------------------
-   RESPONSIVIDADE DO RAG TUTOR
-   --------------------------------------------------------- */
-
-@media (max-width: 800px) {
-
-  .featured-project {
-    grid-template-columns: 1fr;
-  }
-
-  .featured-project__visual {
-    justify-self: stretch;
-
-    width: 100%;
-    max-width: 100%;
-
-    aspect-ratio: 16 / 10;
-  }
-
+.paint-complete .featured-project__preview-frame::after {
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
-@media (max-width: 600px) {
-
-  .featured-project__title {
-    font-size: clamp(3.3rem, 11vw, 5rem);
+@keyframes rag-breathing {
+  from {
+    transform: scale(1);
   }
 
-  .featured-project__actions {
-    flex-direction: column;
-    align-items: stretch;
+  to {
+    transform: scale(1.035);
   }
-
-  .featured-project__actions .button {
-    width: 100%;
-  }
-
-  .featured-project__visual {
-    aspect-ratio: 16 / 11;
-
-    padding: 0.7rem;
-  }
-
-  .featured-project__preview-frame::after {
-    inset: 0.55rem;
-  }
-
 }
 
-
-/* =========================================================
-   14. TRAJETÓRIA — LINHA DO TEMPO EDITORIAL
-   ========================================================= */
+/* TRAJETÓRIA */
 
 .section--journey {
-  background:
-    radial-gradient(
-      ellipse at 15% 75%,
-      rgb(120 57 34 / 15%),
-      transparent 55%
-    ),
-    linear-gradient(
-      180deg,
-      #402a23 0%,
-      #372820 50%,
-      #282622 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #402a23,
+    #372820,
+    #292722
+  );
 }
 
 .journey-timeline {
   max-width: 62rem;
-
   margin-left: clamp(0rem, 6vw, 6rem);
-
   border-left: 1px solid var(--line);
 }
 
 .journey-timeline__item {
   position: relative;
-
   padding:
-    0.5rem
-    0
-    3.7rem
+    .5rem 0 3.5rem
     clamp(1.5rem, 4vw, 4rem);
 }
 
 .journey-timeline__item:last-child {
-  padding-bottom: 0.5rem;
+  padding-bottom: .5rem;
 }
 
 .journey-timeline__marker {
   position: absolute;
-
-  top: 0.9rem;
-  left: -0.4rem;
-
-  width: 0.75rem;
-  height: 0.75rem;
-
-  border: 1px solid var(--sun);
+  top: .9rem;
+  left: -.4rem;
+  width: .75rem;
+  height: .75rem;
+  border: 1px solid var(--gold);
   border-radius: 50%;
-
-  background-color: var(--earth);
+  background: var(--earth);
 }
 
 .journey-timeline__content h3 {
   margin: 0;
-
-  font-size: clamp(1.8rem, 3vw, 3rem);
-
   color: var(--ivory);
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
 }
 
-
-/* =========================================================
-   15. CONTATO — ENCERRAMENTO ARTÍSTICO
-   ========================================================= */
-
-/*
-   A experiência termina em tons escuros,
-   como se a pintura tivesse encontrado
-   uma profundidade mais silenciosa.
-*/
+/* CONTATO */
 
 .section--contact {
-  background:
-    radial-gradient(
-      ellipse at 85% 85%,
-      rgb(155 69 43 / 17%),
-      transparent 57%
-    ),
-    linear-gradient(
-      160deg,
-      #282622 0%,
-      #192722 52%,
-      #101e1c 100%
-    );
-}
-
-.section-artwork--contact {
-  opacity: 0.55;
-
-  background:
-    radial-gradient(
-      ellipse at 100% 100%,
-      rgb(184 93 55 / 21%),
-      transparent 60%
-    );
+  background: linear-gradient(
+    155deg,
+    #292722,
+    #192722 60%,
+    #101e1c
+  );
 }
 
 .contact-content {
@@ -1895,283 +1232,130 @@ section[id] {
 
 .contact-headline {
   max-width: 62rem;
-
-  margin-bottom: 1.4rem;
-
-  font-size: clamp(3.3rem, 7.4vw, 8rem);
-  font-weight: 500;
-
-  letter-spacing: -0.035em;
-  line-height: 0.97;
-
+  margin-bottom: 1.3rem;
   color: var(--ivory);
+  font-size: clamp(3rem, 7vw, 7.6rem);
+  line-height: .98;
+  letter-spacing: -.03em;
 }
 
 .contact-description {
-  max-width: 43rem;
-
-  margin-bottom: 2.6rem;
-
-  font-size: 1rem;
-  line-height: 1.9;
-
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
   color: var(--muted);
 }
 
-
-/* Links */
-
 .contact-links {
   display: grid;
-
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
-
-  column-gap: 2.5rem;
+  gap: 0 2.5rem;
 }
 
 .contact-link {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 1rem;
-
-  min-height: 4.6rem;
-
+  min-height: 4.5rem;
   border-bottom: 1px solid var(--line);
-
   font-family: var(--font-heading);
-  font-size: 1.05rem;
   font-weight: 600;
-
-  letter-spacing: 0.13em;
-
-  transition:
-    color var(--ease-normal),
-    border-color var(--ease-normal);
+  letter-spacing: .14em;
+  transition: color .3s ease;
 }
 
 .contact-link:hover {
-  color: var(--sun);
-  border-color: var(--sun);
+  color: var(--ochre);
 }
 
-.contact-link__arrow::before {
-  content: "→";
-
-  font-family: Georgia, serif;
-  font-size: 1.4rem;
-  font-weight: 400;
-
-  line-height: 1;
-}
-
-
-/* =========================================================
-   16. FOOTER
-   ========================================================= */
+/* FOOTER */
 
 .site-footer {
   padding: 2rem var(--page-space);
-
   border-top: 1px solid var(--line);
-
-  background-color: #101e1c;
+  background: #101e1c;
 }
 
 .footer-container {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   flex-wrap: wrap;
-
   gap: 1.5rem;
-
-  max-width: var(--container);
+  width: min(100%, var(--container));
   margin-inline: auto;
 }
 
 .footer-name {
   margin: 0;
-
+  color: var(--ivory);
   font-family: var(--font-heading);
   font-size: 1.5rem;
-
-  letter-spacing: 0.12em;
+  letter-spacing: .12em;
 }
 
 .footer-signature {
   margin: 0;
-
-  font-size: 0.72rem;
-  letter-spacing: 0.17em;
-
-  color: var(--gold);
+  color: var(--ochre);
+  font-size: .72rem;
+  letter-spacing: .16em;
 }
 
 .footer-year {
-  font-family: var(--font-heading);
   color: var(--muted);
 }
 
+/* =====================================================
+   ELEMENTOS REVELADOS PELO SCROLL
+   ===================================================== */
 
-/* =========================================================
-   17. ANIMAÇÕES CONFORME A ROLAGEM
-   ========================================================= */
-
-/*
-   CSS SCROLL-DRIVEN ANIMATIONS
-
-   Navegadores compatíveis revelam os
-   elementos à medida que entram na tela.
-
-   Navegadores sem suporte recebem o
-   conteúdo normalmente visível.
-
-   Nenhum texto desaparece permanentemente
-   por ausência de JavaScript.
-*/
-
-@keyframes artistic-reveal {
-
-  from {
-    opacity: 0.12;
-    transform: translate3d(0, 22px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-
+.js-enhanced [data-scroll-reveal] {
+  transition:
+    opacity .7s ease,
+    transform .75s var(--ease);
 }
 
-
-/*
-   A revelação só é ativada quando:
-   - há suporte para animation-timeline;
-   - o usuário não pede movimento reduzido.
-*/
-
-@supports (animation-timeline: view()) {
-
-  @media (prefers-reduced-motion: no-preference) {
-
-    .section--about .section-header,
-    .about-content,
-    .section--technologies .section-header,
-    .technologies-content,
-    .section--featured-project .section-header,
-    .featured-project__content,
-    .featured-project__visual,
-    .section--journey .section-header,
-    .journey-timeline__item,
-    .section--contact .section-header,
-    .contact-content {
-
-      animation-name: artistic-reveal;
-      animation-duration: 1s;
-      animation-timing-function: ease-out;
-      animation-fill-mode: both;
-
-      animation-timeline: view();
-      animation-range: entry 0% entry 95%;
-
-    }
-
-  }
-
+.js-enhanced [data-scroll-reveal].is-reveal-pending {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
 }
 
-
-/* =========================================================
-   18. RESPONSIVIDADE — DESKTOP INTERMEDIÁRIO
-   ========================================================= */
-
-@media (max-width: 1280px) {
-
-  .hero-title {
-    font-size: clamp(4.5rem, 8.6vw, 8.8rem);
-  }
-
-  .navigation-list {
-    gap: clamp(0.7rem, 1.8vw, 1.8rem);
-  }
-
-  .navigation-list a {
-    font-size: 0.77rem;
-  }
-
-  .hero-social {
-    left: 0.75rem;
-  }
-
+.js-enhanced [data-scroll-reveal].is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
 
-/* =========================================================
-   19. NOTEBOOK E TABLET
-   ========================================================= */
-
-@media (max-width: 1024px) {
-
+@media (max-width: 1100px) {
   .header-container {
     grid-template-columns: auto 1fr auto;
-    gap: 1rem;
   }
 
   .navigation-list {
-    gap: 0.75rem;
+    gap: .75rem;
   }
 
   .navigation-list a {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    font-size: .72rem;
   }
 
   .hero-title {
-    font-size: clamp(4.1rem, 9vw, 7.6rem);
+    font-size: clamp(4rem, 9vw, 8rem);
   }
-
-  .hero-profession {
-    font-size: clamp(1.35rem, 2.6vw, 2.3rem);
-  }
-
-  .hero-manifesto {
-    font-size: clamp(2.7rem, 4.5vw, 4rem);
-  }
-
-  .hero-social {
-    bottom: 8rem;
-  }
-
 }
-
-
-/* =========================================================
-   20. TABLET — ATÉ 800px
-   ========================================================= */
 
 @media (max-width: 800px) {
-
-  :root {
-    --page-space: clamp(1.5rem, 5vw, 3rem);
-  }
-
-  /* Navegação em duas linhas */
-
   .header-container {
     grid-template-columns: auto 1fr auto;
-    align-items: center;
   }
 
-  .site-brand {
-    grid-column: 1;
-    grid-row: 1;
+  .main-navigation {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
 
   .language-switcher {
@@ -2179,385 +1363,172 @@ section[id] {
     grid-row: 1;
   }
 
-  .main-navigation {
-    grid-column: 1 / -1;
-    grid-row: 2;
+  /* Menu recolhido somente com JS ativo */
 
-    width: 100%;
-  }
-
-  .navigation-list {
+  .is-menu-enabled .mobile-menu-toggle {
+    display: inline-flex;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 0.35rem 1rem;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: rgb(16 30 27 / 85%);
+    cursor: pointer;
   }
 
-  .navigation-list a {
-    font-size: 0.76rem;
+  .mobile-menu-toggle__line {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--gold);
   }
 
-
-  /* Hero */
-
-  .hero {
-    min-height: 100vh;
-    min-height: 100svh;
-
-    padding-top: 11rem;
-    padding-bottom: 11rem;
+  .is-menu-enabled .main-navigation {
+    display: none;
   }
 
-  .hero-title {
-    font-size: clamp(4rem, 10.3vw, 7.2rem);
+  .is-menu-enabled.is-menu-open .main-navigation {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    background: rgb(16 30 27 / 97%);
   }
 
-  .hero-profession {
-    font-size: clamp(1.4rem, 3.4vw, 2.3rem);
+  .is-menu-open .navigation-list {
+    flex-direction: column;
+    align-items: center;
+    gap: .2rem;
   }
 
-  .hero-manifesto {
-    font-size: clamp(2.7rem, 5.5vw, 3.8rem);
-  }
-
-  .hero-social {
-    left: 1rem;
-    bottom: 5.5rem;
-  }
-
-  .hero-scroll-indicator {
-    bottom: 6rem;
-  }
-
-
-  /* Sobre */
-
-  .section--about .section-container {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .section--about .section-header {
-    margin-bottom: 0;
-  }
-
-  .about-content {
-    margin-left: 2rem;
-  }
-
-
-  /* Tecnologias */
-
-  .technologies-list {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-
-
-  /* RAG Tutor */
-
+  .section--about .section-container,
   .featured-project {
     grid-template-columns: 1fr;
   }
 
-  .featured-project__visual {
-    max-width: 42rem;
+  .section--about .section-header {
+    margin-bottom: 1.5rem;
   }
 
+  .technologies-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-
-/* =========================================================
-   21. MOBILE — ATÉ 600px
-   ========================================================= */
-
 @media (max-width: 600px) {
-
   :root {
-    --page-space: 1.3rem;
-    --section-space: 4.8rem;
+    --page-space: 1.2rem;
+    --section-space: 4.5rem;
   }
-
-  html {
-    scroll-padding-top: 2rem;
-  }
-
-
-  /* Header */
 
   .header-container {
-    grid-template-columns: auto 1fr auto;
-
-    gap: 0.25rem;
-
-    padding: 0.7rem 1rem;
+    padding: .65rem 1rem;
   }
-
-  .site-brand__symbol {
-    width: 1.55rem;
-    height: 1.55rem;
-  }
-
-  .language-button {
-    min-width: 2.5rem;
-    min-height: 2.5rem;
-
-    font-size: 0.74rem;
-  }
-
-  .main-navigation {
-    margin-top: 0.3rem;
-  }
-
-  .navigation-list {
-    justify-content: center;
-
-    gap: 0.1rem 0.9rem;
-  }
-
-  .navigation-list a {
-    padding: 0.4rem 0;
-
-    font-size: 0.71rem;
-    letter-spacing: 0.07em;
-  }
-
-
-  /* Hero com altura estável */
 
   .hero {
-    display: flex;
     flex-direction: column;
-
     align-items: stretch;
     justify-content: center;
-
-    min-height: 100vh;
-    min-height: 100svh;
-
-    padding:
-      12rem
-      var(--page-space)
-      6.5rem;
+    padding: 7.5rem var(--page-space) 3.5rem;
   }
 
-  .hero-container {
-    flex: 0 0 auto;
+  .hero-title {
+    font-size: clamp(2.75rem, 12.3vw, 5rem);
+    letter-spacing: -.06em;
   }
 
-  .hero-content {
+  .hero-profession {
+    font-size: clamp(1rem, 4.6vw, 1.7rem);
+    letter-spacing: .055em;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-specialties {
+    font-size: .7rem;
+    letter-spacing: .05em;
+  }
+
+  .hero-manifesto {
+    margin: 1.7rem 0 1.5rem .35rem;
+    font-size: clamp(2.15rem, 8vw, 3.2rem);
+    line-height: .86;
+    transform: rotate(-4deg);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .65rem;
+    margin-left: 0;
+  }
+
+  .hero-actions .button,
+  .featured-project__actions .button {
     width: 100%;
-    max-width: 100%;
   }
 
+  .hero-social {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    align-self: flex-start;
+    margin-top: 1.5rem;
+  }
 
-  /* Pintura no celular */
+  .hero-social__list {
+    flex-direction: row;
+    gap: .6rem;
+  }
 
-  .hero-artwork__layer {
+  .hero-artwork__layer,
+  .hero-artwork__image {
+    object-position: 60% center;
     background-position: 60% center;
   }
 
   .hero-artwork__image {
-    object-position: 60% center;
-
     animation: none;
-    transform: none;
   }
 
   .hero-artwork__overlay {
     background:
       linear-gradient(
         90deg,
-        rgb(15 24 20 / 78%) 0%,
-        rgb(15 24 20 / 55%) 65%,
-        rgb(15 24 20 / 28%) 100%
+        rgb(12 20 18 / 80%),
+        rgb(12 20 18 / 38%)
       ),
       linear-gradient(
         0deg,
-        rgb(48 29 23 / 56%) 0%,
-        transparent 55%,
-        rgb(10 22 21 / 20%) 100%
+        rgb(48 29 23 / 50%),
+        transparent 55%
       );
   }
-
-
-  /* Título */
-
-  .hero-title {
-    font-size: clamp(2.85rem, 12.4vw, 5.1rem);
-
-    letter-spacing: -0.065em;
-
-    white-space: nowrap;
-  }
-
-
-  /* Profissão */
-
-  .hero-profession {
-    margin-top: 0.7rem;
-
-    font-size: clamp(1.05rem, 4.6vw, 1.75rem);
-
-    letter-spacing: 0.06em;
-
-    overflow-wrap: anywhere;
-  }
-
-
-  /* Especialidades */
-
-  .hero-specialties {
-    max-width: 100%;
-
-    font-size: 0.72rem;
-
-    letter-spacing: 0.06em;
-    line-height: 1.7;
-  }
-
-
-  /* Manuscrito */
-
-  .hero-manifesto {
-    max-width: 100%;
-
-    margin:
-      2.7rem
-      0
-      2rem
-      0.4rem;
-
-    font-size: clamp(2.3rem, 8vw, 3.3rem);
-
-    line-height: 0.86;
-
-    transform: rotate(-4deg);
-  }
-
-
-  /* Botões empilhados */
-
-  .hero-actions {
-    display: flex;
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 0.75rem;
-
-    margin-left: 0;
-  }
-
-  .hero-actions .button {
-    width: 100%;
-  }
-
-
-  /* Redes sociais horizontais */
-
-  .hero-social {
-    position: relative;
-
-    left: auto;
-    bottom: auto;
-
-    align-self: flex-start;
-
-    margin-top: 2rem;
-
-    z-index: 7;
-  }
-
-  .hero-social__list {
-    flex-direction: row;
-    gap: 0.65rem;
-  }
-
-  .hero-social a {
-    width: 2.75rem;
-    height: 2.75rem;
-  }
-
-
-  /* Scroll decorativo oculto */
-
-  .hero-scroll-indicator {
-    display: none;
-  }
-
-
-  /* Transição orgânica */
-
-  .hero-brush-transition {
-    height: 6rem;
-  }
-
-
-  /* Pintura continuando na seção Sobre */
-
-  .section--about::before {
-    background-position: 58% top;
-
-    opacity: 0.3;
-  }
-
-
-  /* Seções */
 
   .section-header {
     gap: 1rem;
   }
 
   .section-title {
-    font-size: clamp(2.2rem, 8vw, 3.1rem);
+    font-size: clamp(2.2rem, 8vw, 3rem);
   }
 
   .section-statement {
-    font-size: 0.72rem;
-    letter-spacing: 0.13em;
-  }
-
-
-  /* Sobre */
-
-  .section--about {
-    padding-top: 4rem;
+    font-size: .7rem;
+    letter-spacing: .11em;
   }
 
   .about-content {
-    margin-left: 0;
     padding-left: 1.2rem;
   }
 
-  .about-description {
-    font-size: 0.98rem;
-    line-height: 1.85;
-  }
-
-
-  /* Tecnologias */
-
-  .technologies-list {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    column-gap: 1rem;
-  }
-
   .technology-item {
-    font-size: clamp(1.15rem, 4.5vw, 1.6rem);
-
-    padding: 1.1rem 0;
-  }
-
-  .technology-item::before {
-    margin-right: 0.4rem;
-  }
-
-
-  /* Projeto */
-
-  .featured-project__title {
-    font-size: clamp(3.3rem, 11vw, 5rem);
+    font-size: clamp(1.1rem, 4.5vw, 1.6rem);
   }
 
   .featured-project__actions {
@@ -2565,177 +1536,55 @@ section[id] {
     align-items: stretch;
   }
 
-  .featured-project__actions .button {
-    width: 100%;
-  }
-
-
-  /* Trajetória */
-
-  .journey-timeline {
-    margin-left: 0.5rem;
-  }
-
-  .journey-timeline__item {
-    padding-left: 1.7rem;
-  }
-
-
-  /* Contato */
-
-  .contact-headline {
-    font-size: clamp(2.9rem, 10.5vw, 5rem);
-  }
-
   .contact-links {
     grid-template-columns: 1fr;
   }
 
-  .contact-link {
-    min-height: 4.5rem;
+  .contact-headline {
+    font-size: clamp(2.8rem, 10.5vw, 5rem);
   }
-
 }
 
-
-/* =========================================================
-   22. CELULARES COMPACTOS
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-  :root {
-    --page-space: 1.05rem;
-  }
-
-  .navigation-list {
-    gap: 0.1rem 0.65rem;
-  }
-
-  .navigation-list a {
-    font-size: 0.66rem;
-  }
-
-  .hero {
-    padding-top: 12.2rem;
-  }
-
+@media (max-width: 360px) {
   .hero-title {
-    font-size: clamp(2.75rem, 12.1vw, 3.15rem);
+    font-size: 12vw;
   }
 
   .hero-profession {
-    font-size: clamp(1rem, 4.4vw, 1.25rem);
+    font-size: 4.35vw;
   }
 
   .hero-manifesto {
-    font-size: clamp(2.05rem, 7.8vw, 2.8rem);
+    font-size: 7.5vw;
   }
-
-  .hero-specialties {
-    font-size: 0.68rem;
-  }
-
 }
 
+/* JANELAS BAIXAS: conteúdo sem cortes */
 
-/* =========================================================
-   23. TELAS MUITO ESTREITAS
-   ========================================================= */
-
-@media (max-width: 340px) {
-
-  .navigation-list {
-    gap: 0 0.5rem;
-  }
-
-  .navigation-list a {
-    font-size: 0.62rem;
-  }
-
+@media (max-height: 690px) and (min-width: 801px) {
   .hero {
-    padding-top: 12.5rem;
-    padding-bottom: 6.5rem;
+    padding-top: 5.2rem;
+    padding-bottom: 3rem;
   }
 
   .hero-title {
-    font-size: 2.7rem;
-  }
-
-  .hero-profession {
-    font-size: 0.98rem;
-
-    letter-spacing: 0.025em;
+    font-size: clamp(3.9rem, 7.5vw, 7.2rem);
   }
 
   .hero-manifesto {
-    font-size: 2rem;
-  }
-
-  .hero-manifesto span {
-    white-space: normal;
-  }
-
-  .hero-specialties {
-    font-size: 0.65rem;
-  }
-
-  .technology-item {
-    font-size: 1.1rem;
-  }
-
-}
-
-
-/* =========================================================
-   24. TELAS BAIXAS E LARGAS
-   ========================================================= */
-
-@media (max-height: 700px) and (min-width: 801px) {
-
-  .hero {
-    padding-top: 7rem;
-    padding-bottom: 8rem;
-  }
-
-  .hero-manifesto {
-    margin-top: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-scroll-indicator {
-    bottom: 5.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: clamp(2.4rem, 3.1vw, 3.4rem);
   }
 
   .hero-social {
-    bottom: 6rem;
+    bottom: 2.5rem;
   }
-
 }
 
-
-/* =========================================================
-   25. DISPOSITIVOS SEM HOVER
-   ========================================================= */
-
-@media (hover: none) {
-
-  .button,
-  .contact-link,
-  .hero-social a,
-  .technology-item {
-    transition-duration: 0ms;
-  }
-
-}
-
-
-/* =========================================================
-   26. MOVIMENTO REDUZIDO E ACESSIBILIDADE
-   ========================================================= */
+/* ACESSIBILIDADE */
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
@@ -2744,16 +1593,43 @@ section[id] {
   *::before,
   *::after {
     animation: none !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: .01ms !important;
   }
 
-  .hero-artwork__image {
-    transform: none;
+  .has-scroll-story .hero-story-stage {
+    height: auto;
   }
 
+  .has-scroll-story .hero-story-stage > .hero {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .has-scroll-story .hero-manifesto span,
+  .js-enhanced [data-scroll-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .paint-ready .featured-project__preview-frame::after {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
+/* CORREÇÃO EMERGENCIAL DE DESEMPENHO */
 
-/* =========================================================
-   FIM — css/style.css
-   ========================================================= */
+.hero::before,
+.hero::after,
+.section::after {
+  animation: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background-blend-mode: normal !important;
+  transform: none !important;
+}
+
+.featured-project__preview-frame::after {
+  animation: none !important;
+}
