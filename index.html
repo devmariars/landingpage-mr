@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Portfólio profissional de Maria Rita. Inteligência Artificial, Engenharia de Prompt, RAG e aplicações de IA. Entre código e arte, transformando problemas em soluções."
+  >
+
+  <meta name="author" content="Maria Rita">
+
+  <title>Maria Rita | Engenheira de P.R.O.M.P.T.</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ==========================================
+       HEADER / NAVEGAÇÃO
+  =========================================== -->
+
+  <header class="site-header" id="topo">
+
+    <div class="header-container">
+
+      <!-- Identidade visual -->
+      <a
+        href="#inicio"
+        class="site-brand"
+        aria-label="Maria Rita — voltar ao início"
+      >
+        <span class="site-brand__symbol" aria-hidden="true"></span>
+        <span class="site-brand__name">Maria Rita</span>
+      </a>
+
+      <!-- Navegação principal -->
+      <nav
+        class="main-navigation"
+        id="primary-navigation"
+        aria-label="Navegação principal"
+      >
+
+        <ul class="navigation-list">
+
+          <li>
+            <a href="#inicio" data-i18n="nav.home">
+              INÍCIO
+            </a>
+          </li>
+
+          <li>
+            <a href="#sobre" data-i18n="nav.about">
+              SOBRE
+            </a>
+          </li>
+
+          <li>
+            <a href="#tecnologias" data-i18n="nav.technologies">
+              TECNOLOGIAS
+            </a>
+          </li>
+
+          <li>
+            <a href="#projeto" data-i18n="nav.project">
+              PROJETO
+            </a>
+          </li>
+
+          <li>
+            <a href="#trajetoria" data-i18n="nav.journey">
+              TRAJETÓRIA
+            </a>
+          </li>
+
+          <li>
+            <a href="#contato" data-i18n="nav.contact">
+              CONTATO
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!-- Alternância futura de idioma -->
+      <div
+        class="language-switcher"
+        role="group"
+        aria-label="Selecionar idioma"
+      >
+
+        <button
+          type="button"
+          class="language-button is-active"
+          data-language="pt-BR"
+          aria-pressed="true"
+          lang="pt-BR"
+        >
+          PT
+        </button>
+
+        <button
+          type="button"
+          class="language-button"
+          data-language="en"
+          aria-pressed="false"
+          lang="en"
+        >
+          EN
+        </button>
+
+      </div>
+
+      <!-- Botão para navegação mobile -->
+      <button
+        type="button"
+        class="mobile-menu-toggle"
+        aria-label="Abrir menu de navegação"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+        data-menu-toggle
+        data-i18n-aria-label="nav.openMenu"
+      >
+
+        <span class="mobile-menu-toggle__line" aria-hidden="true"></span>
+        <span class="mobile-menu-toggle__line" aria-hidden="true"></span>
+        <span class="mobile-menu-toggle__line" aria-hidden="true"></span>
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <main id="conteudo-principal">
+
+    <!-- ==========================================
+         01. INÍCIO / HERO
+    =========================================== -->
+
+    <section
+      class="hero"
+      id="inicio"
+      aria-labelledby="hero-title"
+    >
+
+      <!--
+        CAMADA ARTÍSTICA
+
+        A pintura original será utilizada como
+        base visual da composição.
+
+        O CSS poderá aplicar:
+        - preenchimento da viewport
+        - leve desfoque
+        - parallax
+        - profundidade
+        - efeitos de luz
+        - movimento extremamente sutil
+
+        O JavaScript poderá controlar
+        posteriormente os movimentos.
+      -->
+
+      <div class="hero-artwork" aria-hidden="true">
+
+        <div class="hero-artwork__layer">
+
+          <img
+            class="hero-artwork__image"
+            src="assets/a-vinha-vermelha.png"
+            alt=""
+            fetchpriority="high"
+            decoding="async"
+          >
+
+        </div>
+
+        <div class="hero-artwork__depth"></div>
+        <div class="hero-artwork__light"></div>
+        <div class="hero-artwork__overlay"></div>
+
+      </div>
+
+
+      <!-- Conteúdo editorial -->
+      <div class="hero-container">
+
+        <div class="hero-content">
+
+          <div class="hero-heading">
+
+            <h1 id="hero-title" class="hero-title">
+              MARIA RITA
+            </h1>
+
+            <p
+              class="hero-profession"
+              data-i18n="hero.profession"
+            >
+              ENGENHEIRA DE P.R.O.M.P.T.
+            </p>
+
+            <p
+              class="hero-specialties"
+              data-i18n="hero.specialties"
+            >
+              IA GENERATIVA · RAG · APLICAÇÕES DE INTELIGÊNCIA ARTIFICIAL
+            </p>
+
+          </div>
+
+
+          <!-- Frase artística / manuscrita -->
+          <p class="hero-manifesto">
+
+            <span data-i18n="hero.manifesto.line1">
+              Problema entendido.
+            </span>
+
+            <span data-i18n="hero.manifesto.line2">
+              Solução construída.
+            </span>
+
+            <span data-i18n="hero.manifesto.line3">
+              Conhecimento compartilhado.
+            </span>
+
+          </p>
+
+
+          <!-- Chamadas para ação -->
+          <div class="hero-actions">
+
+            <a
+              class="button button--primary"
+              href="https://github.com/devmariars"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              <span data-i18n="hero.projects">
+                VER PROJETOS
+              </span>
+
+              <span class="button__arrow" aria-hidden="true"></span>
+
+            </a>
+
+
+            <a
+              class="button button--outline"
+              href="#contato"
+            >
+
+              <span data-i18n="hero.contact">
+                ENTRAR EM CONTATO
+              </span>
+
+              <span class="button__arrow" aria-hidden="true"></span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Redes sociais verticais -->
+      <nav
+        class="hero-social"
+        aria-label="Redes sociais e contato"
+      >
+
+        <ul class="hero-social__list">
+
+          <li>
+            <a
+              href="https://github.com/devmariars"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub de Maria Rita"
+            >
+              <span class="social-icon social-icon--github" aria-hidden="true"></span>
+              <span class="social-label">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.linkedin.com/in/maria-rita-7b1a39382"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn de Maria Rita"
+            >
+              <span class="social-icon social-icon--linkedin" aria-hidden="true"></span>
+              <span class="social-label">LinkedIn</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://wa.me/5535998246162"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Conversar pelo WhatsApp"
+              data-i18n-aria-label="social.whatsapp"
+            >
+              <span class="social-icon social-icon--whatsapp" aria-hidden="true"></span>
+              <span class="social-label">WhatsApp</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="mailto:dev.mariars@gmail.com"
+              aria-label="Enviar e-mail para Maria Rita"
+              data-i18n-aria-label="social.email"
+            >
+              <span class="social-icon social-icon--email" aria-hidden="true"></span>
+              <span class="social-label">E-mail</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+      <!-- Indicador de exploração -->
+      <a
+        class="hero-scroll-indicator"
+        href="#sobre"
+      >
+
+        <span
+          class="hero-scroll-indicator__symbol"
+          aria-hidden="true"
+        ></span>
+
+        <span data-i18n="hero.scroll">
+          ROLE PARA EXPLORAR
+        </span>
+
+      </a>
+
+
+      <!-- Transição artística inferior -->
+      <div
+        class="hero-brush-transition"
+        aria-hidden="true"
+      >
+        <span class="brush-stroke brush-stroke--primary"></span>
+        <span class="brush-stroke brush-stroke--secondary"></span>
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         02. SOBRE MIM
+    =========================================== -->
+
+    <section
+      class="section section--about"
+      id="sobre"
+      aria-labelledby="about-title"
+    >
+
+      <div
+        class="section-artwork section-artwork--about"
+        aria-hidden="true"
+      ></div>
+
+      <div class="section-container">
+
+        <header class="section-header">
+
+          <span class="section-number" aria-hidden="true">
+            01
+          </span>
+
+          <div class="section-header__content">
+
+            <h2
+              id="about-title"
+              class="section-title"
+              data-i18n="about.title"
+            >
+              SOBRE MIM
+            </h2>
+
+            <p
+              class="section-statement"
+              data-i18n="about.statement"
+            >
+              ENTRE CÓDIGO E ARTE,
+              TRANSFORMO PROBLEMAS EM SOLUÇÕES.
+            </p>
+
+          </div>
+
+        </header>
+
+
+        <div class="about-content">
+
+          <p
+            class="about-description"
+            data-i18n="about.description"
+          >
+            Sou Maria Rita, profissional de Inteligência Artificial em formação, com foco em Engenharia de Prompt, RAG e aplicações de IA. Gosto de entender problemas, estudar como as ferramentas funcionam e construir soluções que façam sentido, unindo raciocínio, tecnologia e criatividade.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         03. TECNOLOGIAS
+    =========================================== -->
+
+    <section
+      class="section section--technologies"
+      id="tecnologias"
+      aria-labelledby="technologies-title"
+    >
+
+      <div class="section-container">
+
+        <header class="section-header">
+
+          <span class="section-number" aria-hidden="true">
+            02
+          </span>
+
+          <h2
+            id="technologies-title"
+            class="section-title"
+            data-i18n="technologies.title"
+          >
+            TECNOLOGIAS
+          </h2>
+
+        </header>
+
+
+        <!--
+          Lista semântica de conhecimentos.
+
+          A composição editorial será definida
+          posteriormente pelo CSS, sem obrigar
+          o uso de cards ou barras de progresso.
+        -->
+
+        <div class="technologies-content">
+
+          <ul class="technologies-list">
+
+            <li class="technology-item" data-technology="generative-ai">
+              <span data-i18n="technologies.generativeAI">
+                IA Generativa
+              </span>
+            </li>
+
+            <li class="technology-item" data-technology="prompt-engineering">
+              <span>
+                Prompt Engineering
+              </span>
+            </li>
+
+            <li class="technology-item" data-technology="rag">
+              <span>RAG</span>
+            </li>
+
+            <li class="technology-item" data-technology="embeddings">
+              <span>Embeddings</span>
+            </li>
+
+            <li class="technology-item" data-technology="semantic-search">
+              <span data-i18n="technologies.semanticSearch">
+                Busca Semântica
+              </span>
+            </li>
+
+            <li class="technology-item" data-technology="python">
+              <span>Python</span>
+            </li>
+
+            <li class="technology-item" data-technology="html">
+              <span>HTML</span>
+            </li>
+
+            <li class="technology-item" data-technology="css">
+              <span>CSS</span>
+            </li>
+
+            <li class="technology-item" data-technology="javascript">
+              <span>JavaScript</span>
+            </li>
+
+            <li class="technology-item" data-technology="apis">
+              <span>APIs</span>
+            </li>
+
+            <li class="technology-item" data-technology="git">
+              <span>Git</span>
+            </li>
+
+            <li class="technology-item" data-technology="github">
+              <span>GitHub</span>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         04. PROJETO EM DESTAQUE
+    =========================================== -->
+
+    <section
+      class="section section--featured-project"
+      id="projeto"
+      aria-labelledby="project-section-title"
+    >
+
+      <div class="section-container">
+
+        <header class="section-header">
+
+          <span class="section-number" aria-hidden="true">
+            03
+          </span>
+
+          <h2
+            id="project-section-title"
+            class="section-title"
+            data-i18n="project.sectionTitle"
+          >
+            PROJETO EM DESTAQUE
+          </h2>
+
+        </header>
+
+
+        <article
+          class="featured-project"
+          aria-labelledby="rag-tutor-title"
+        >
+
+          <!-- Conteúdo do projeto -->
+          <div class="featured-project__content">
+
+            <h3
+              class="featured-project__title"
+              id="rag-tutor-title"
+            >
+              RAG TUTOR
+            </h3>
+
+
+            <p
+              class="featured-project__description"
+              data-i18n="project.description"
+            >
+              Sistema educacional de RAG com busca semântica, recuperação de contexto e tratamento de perguntas fora da base.
+            </p>
+
+
+            <!-- Tecnologias utilizadas -->
+            <ul
+              class="featured-project__technologies"
+              aria-label="Tecnologias e conceitos utilizados"
+              data-i18n-aria-label="project.technologiesLabel"
+            >
+
+              <li>Python</li>
+              <li>Flask</li>
+              <li>RAG</li>
+              <li>Embeddings</li>
+
+              <li data-i18n="technologies.semanticSearch">
+                Busca Semântica
+              </li>
+
+              <li>Gemini</li>
+              <li>Git</li>
+              <li>Render</li>
+
+            </ul>
+
+
+            <!-- Links do projeto -->
+            <div class="featured-project__actions">
+
+              <a
+                class="button button--primary"
+                href="https://rag-tutor-1.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span data-i18n="project.tryApplication">
+                  TESTAR APLICAÇÃO
+                </span>
+
+                <span class="button__arrow" aria-hidden="true"></span>
+
+              </a>
+
+
+              <a
+                class="button button--outline"
+                href="https://github.com/devmariars/RAG-tutor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span data-i18n="project.viewCode">
+                  VER CÓDIGO
+                </span>
+
+                <span class="button__arrow" aria-hidden="true"></span>
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!--
+            ÁREA VISUAL RESERVADA
+
+            Posteriormente será inserida uma
+            captura de tela ou mockup do RAG Tutor.
+
+            Arquivo previsto:
+            assets/rag-tutor-preview.webp
+
+            A imagem futura deverá possuir
+            texto alternativo descritivo.
+          -->
+
+          <div
+            class="featured-project__visual"
+            data-project-preview="rag-tutor"
+          >
+
+            <div
+              class="featured-project__preview-frame"
+              aria-hidden="true"
+            ></div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         05. TRAJETÓRIA
+    =========================================== -->
+
+    <section
+      class="section section--journey"
+      id="trajetoria"
+      aria-labelledby="journey-title"
+    >
+
+      <div class="section-container">
+
+        <header class="section-header">
+
+          <span class="section-number" aria-hidden="true">
+            04
+          </span>
+
+          <h2
+            id="journey-title"
+            class="section-title"
+            data-i18n="journey.title"
+          >
+            TRAJETÓRIA
+          </h2>
+
+        </header>
+
+
+        <!--
+          Estrutura preparada para uma futura
+          linha do tempo ou composição editorial.
+
+          Datas e descrições definitivas
+          serão acrescentadas posteriormente.
+        -->
+
+        <ol class="journey-timeline">
+
+          <li class="journey-timeline__item">
+
+            <div
+              class="journey-timeline__marker"
+              aria-hidden="true"
+            ></div>
+
+            <div class="journey-timeline__content">
+
+              <h3 data-i18n="journey.entry">
+                Entrada e estudos em tecnologia
+              </h3>
+
+            </div>
+
+          </li>
+
+
+          <li class="journey-timeline__item">
+
+            <div
+              class="journey-timeline__marker"
+              aria-hidden="true"
+            ></div>
+
+            <div class="journey-timeline__content">
+
+              <h3 data-i18n="journey.aiDevelopment">
+                Desenvolvimento em Inteligência Artificial
+              </h3>
+
+            </div>
+
+          </li>
+
+
+          <li class="journey-timeline__item">
+
+            <div
+              class="journey-timeline__marker"
+              aria-hidden="true"
+            ></div>
+
+            <div class="journey-timeline__content">
+
+              <h3 data-i18n="journey.practicalProjects">
+                Projetos e aplicações práticas
+              </h3>
+
+            </div>
+
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         06. CONTATO
+    =========================================== -->
+
+    <section
+      class="section section--contact"
+      id="contato"
+      aria-labelledby="contact-title"
+    >
+
+      <div
+        class="section-artwork section-artwork--contact"
+        aria-hidden="true"
+      ></div>
+
+      <div class="section-container">
+
+        <header class="section-header">
+
+          <span class="section-number" aria-hidden="true">
+            05
+          </span>
+
+          <h2
+            id="contact-title"
+            class="section-title"
+            data-i18n="contact.title"
+          >
+            CONTATO
+          </h2>
+
+        </header>
+
+
+        <div class="contact-content">
+
+          <h3
+            class="contact-headline"
+            data-i18n="contact.headline"
+          >
+            VAMOS CONSTRUIR ALGUMA COISA?
+          </h3>
+
+
+          <p
+            class="contact-description"
+            data-i18n="contact.description"
+          >
+            Se você quer conversar sobre tecnologia, Inteligência Artificial, projetos ou oportunidades, me encontre por aqui.
+          </p>
+
+
+          <!-- Links diretos de contato -->
+          <ul class="contact-links">
+
+            <li>
+
+              <a
+                class="contact-link"
+                href="https://www.linkedin.com/in/maria-rita-7b1a39382"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span>LINKEDIN</span>
+                <span class="contact-link__arrow" aria-hidden="true"></span>
+
+              </a>
+
+            </li>
+
+
+            <li>
+
+              <a
+                class="contact-link"
+                href="https://github.com/devmariars"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span>GITHUB</span>
+                <span class="contact-link__arrow" aria-hidden="true"></span>
+
+              </a>
+
+            </li>
+
+
+            <li>
+
+              <a
+                class="contact-link"
+                href="https://wa.me/5535998246162"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span>WHATSAPP</span>
+                <span class="contact-link__arrow" aria-hidden="true"></span>
+
+              </a>
+
+            </li>
+
+
+            <li>
+
+              <a
+                class="contact-link"
+                href="mailto:dev.mariars@gmail.com"
+              >
+
+                <span data-i18n="contact.email">
+                  E-MAIL
+                </span>
+
+                <span class="contact-link__arrow" aria-hidden="true"></span>
+
+              </a>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+
+  <footer class="site-footer">
+
+    <div class="footer-container">
+
+      <div class="footer-identity">
+
+        <p class="footer-name">
+          MARIA RITA
+        </p>
+
+        <p
+          class="footer-signature"
+          data-i18n="footer.signature"
+        >
+          IA · CÓDIGO · ARTE
+        </p>
+
+      </div>
+
+
+      <time
+        class="footer-year"
+        datetime="2026"
+        data-current-year
+      >
+        2026
+      </time>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
