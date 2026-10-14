@@ -128,13 +128,16 @@
       -rect.top / distance
     );
 
-    /* As frases aparecem na ordem correta
-       e desaparecem quando rolamos de volta. */
+    /*
+      ALTERAÇÃO:
+      As três frases aparecem mais rapidamente,
+      mantendo sua ordem original.
+    */
 
     const thresholds = [
-      0.10,
-      0.34,
-      0.58
+      0.05,
+      0.15,
+      0.25
     ];
 
     manifestoLines.forEach((line, index) => {
@@ -161,8 +164,8 @@
     }
 
     /*
-       O texto se dissolve um pouco no final,
-       mas permanece acima das cores.
+      O texto se dissolve um pouco no final,
+      mas permanece acima das cores.
     */
 
     if (heroContainer) {
@@ -177,10 +180,10 @@
      ===================================================== */
 
   /*
-     O movimento contínuo das cores é CSS.
+    O movimento contínuo das cores é CSS.
 
-     O JS apenas acrescenta um deslocamento
-     suave conforme a pessoa percorre a página.
+    O JS apenas acrescenta um deslocamento
+    suave conforme a pessoa percorre a página.
   */
 
   function updateColorMovement() {
@@ -259,11 +262,11 @@
             );
           } else {
             /*
-               O elemento volta ao estado inicial
-               quando deixa a região visível.
+              O elemento volta ao estado inicial
+              quando deixa a região visível.
 
-               Isso permite repetir a entrada
-               ao subir e descer novamente.
+              Isso permite repetir a entrada
+              ao subir e descer novamente.
             */
 
             element.classList.remove(
@@ -326,12 +329,12 @@
     const height = window.innerHeight;
 
     /*
-       Começa quando o RAG entra na tela.
-       Termina depois de avançarmos mais
-       um pouco na seção.
+      Começa quando o RAG entra na tela.
+      Termina depois de avançarmos mais
+      um pouco na seção.
 
-       O progresso é recalculado sempre.
-       Não existe trava definitiva.
+      O progresso é recalculado sempre.
+      Não existe trava definitiva.
     */
 
     const start = height * 0.90;
@@ -342,8 +345,8 @@
     );
 
     /*
-       Ao voltar para cima, a máscara volta.
-       Ao chegar ao fim, é removida.
+      Ao voltar para cima, a máscara volta.
+      Ao chegar ao fim, é removida.
     */
 
     if (progress >= 0.995) {
@@ -365,9 +368,9 @@
     }
 
     /*
-       Oito pinceladas horizontais.
-       Pequenas diferenças entre elas criam
-       uma revelação menos mecânica.
+      Oito pinceladas horizontais.
+      Pequenas diferenças entre elas criam
+      uma revelação menos mecânica.
     */
 
     for (let index = 0; index < 8; index++) {
